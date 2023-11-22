@@ -1,0 +1,328 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    &__hero {
+        display: flex;
+        padding: 20.3rem 0 0 11.6rem;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+
+        .radial {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        .avatar {
+            position: absolute;
+            top: 33px;
+            right: 0;
+            z-index: 2;
+        }
+        .scroll-down {
+            margin-top: 7.8rem;
+        }
+        &-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+    &__value {
+        display: flex;
+        align-items: center;
+        padding-block: 12rem 8rem;
+        gap: 5.6rem;
+        flex-direction: column;
+        position: relative;
+        &-title {
+            &-box {
+                width: 76rem;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 2.4rem;
+            }
+        }
+        .bubbles {
+            position: absolute;
+            top: 120px;
+            left: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        p {
+            color: var(--secondary-color);
+            width: 51.1rem;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 300;
+            line-height: 2rem; /* 142.857% */
+            font-family: "Lexend", sans-serif;
+        }
+        &-cards {
+            display: flex;
+            gap: 2.4rem;
+        }
+    }
+    &__gaming {
+        padding: 8rem 11.6rem;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        &-content {
+            display: flex;
+            flex-direction: column;
+            max-width: 36.7rem;
+            gap: 3.2rem;
+            div {
+                color: #f0f0f0;
+                font-family: "Integral CF", sans-serif;
+                font-size: 4rem;
+                font-weight: 400;
+                line-height: 4.8rem;
+            }
+            p {
+                color: var(--secondary-color);
+                font-size: 1.4rem;
+                font-weight: 300;
+                line-height: 2rem;
+            }
+        }
+        &-illustration {
+            position: absolute;
+            top: -55%;
+            right: 0%;
+        }
+        &-users {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.4rem;
+        }
+    }
+    h1 {
+        color: var(--heading-color);
+        font-family: "Integral CF", sans-serif;
+        font-size: 6.4rem;
+        font-weight: 400;
+        line-height: 6.4rem;
+    }
+}
+
+.hero {
+    &__content {
+        display: flex;
+        flex-direction: column;
+        &-text {
+            color: var(--primary-color);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+        h1 {
+            margin-block: 2.1rem 2.4rem;
+            background-color: black;
+        }
+        p {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            font-weight: 300;
+            line-height: 2rem; /* 142.857% */
+            margin-bottom: 4.8rem;
+            max-width: 49rem;
+        }
+    }
+    &__user {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        margin-top: 88px;
+        margin-right: 217px;
+        z-index: 5;
+        &-detail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            span {
+                display: inline-block;
+                color: #fff;
+                font-size: 1rem;
+                font-weight: 400;
+                line-height: 1.6rem;
+            }
+            p {
+                color: #fff;
+                font-size: 1.4rem;
+                font-weight: 400;
+                line-height: 1.6rem;
+            }
+            img:last-of-type {
+                margin-top: 3.7rem;
+            }
+        }
+        .pills {
+            height: auto;
+            width: 39.5rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 88.75em) {
+    .home {
+        &__hero {
+            padding-left: 7rem;
+            .avatar {
+                right: -6%;
+            }
+        }
+    }
+    .hero__user {
+        margin-right: 145px;
+    }
+}
+
+@media only screen and (max-width: 81.25em) {
+    .home__hero {
+        padding-left: 4.8rem;
+    }
+    .hero {
+        &__content {
+            h1 {
+                font-size: 5.4rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 75em) {
+    .home {
+        &__hero {
+            padding-bottom: 4rem;
+            .avatar {
+                right: -13%;
+            }
+        }
+    }
+    .hero__user {
+        margin-right: 64px;
+    }
+    .home__gaming,
+    .home__value {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 68.75em) {
+    .hero {
+        &__content {
+            h1 {
+                font-size: 4.8rem;
+                background-color: transparent;
+                z-index: 5;
+            }
+            p {
+                max-width: 43rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 61.875em) {
+    .home__hero {
+        &-container {
+            flex-direction: column;
+        }
+        .avatar {
+            top: 40%;
+            right: 0%;
+            width: 100%;
+            height: auto;
+        }
+        h1 {
+            font-size: 6.4rem;
+        }
+        p {
+            max-width: 49rem;
+        }
+    }
+    .hero {
+        &__content {
+            z-index: 10;
+        }
+        &__user {
+            margin-right: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 48em) {
+    .home {
+        &__hero {
+            padding-top: 12rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 43.75em) {
+    .home__hero {
+        .avatar {
+            top: 50%;
+            transform: scale(1.3);
+        }
+    }
+    .hero__content {
+        h1 {
+            font-size: 4.8rem;
+        }
+        p {
+            max-width: 43rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+    .home__hero {
+        padding-top: 5.6rem;
+        padding-inline: 1.6rem;
+    }
+    .hero__content {
+        p {
+            max-width: unset;
+            margin-bottom: 5.6rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 28.125em) {
+    .home__hero {
+        .avatar {
+            transform: scale(1.8);
+            top: 52%;
+        }
+    }
+
+    .hero__user {
+        margin-top: 17rem;
+        &-detail {
+            img:last-of-type {
+                margin-top: 1.8rem;
+            }
+        }
+        .pills {
+            width: 31rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 25rem) {
+    .hero__content {
+        h1 {
+            font-size: 3.2rem;
+            line-height: 3.2rem;
+        }
+    }
+}

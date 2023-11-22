@@ -1,0 +1,83 @@
+.profileCell {
+    display: flex;
+    width: 28.4rem;
+    padding: 0.6rem;
+    height: 8rem;
+    border-radius: 55rem;
+    border: 1px solid rgba(52, 52, 52, 0.5);
+    background: #080808;
+    backdrop-filter: blur(10px);
+    align-items: center;
+    gap: 1.45rem;
+    position: relative;
+    transition: all 0.3s;
+    img {
+        width: 6.4rem;
+        height: 6.4rem;
+        border-radius: 50%;
+    }
+    p {
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 1.6rem;
+        background: linear-gradient(90deg, #2d2d2d 0%, #ababab 102.73%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    &__container {
+        position: relative;
+        cursor: pointer;
+        &.opposite {
+            .profileCell__box {
+                right: -16px !important;
+                left: unset;
+            }
+        }
+        &:hover {
+            .profileCell {
+                z-index: 20;
+                border-radius: 5.5rem;
+                border: 1px solid rgba(235, 58, 74, 0.5);
+                background: rgba(235, 58, 74, 0.1);
+                backdrop-filter: blur(10px);
+                p {
+                    background: transparent;
+                    background-clip: unset;
+                    color: var(--primary-color);
+                    -webkit-text-fill-color: unset;
+                }
+                &__box {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+    &__box {
+        display: flex;
+        width: 62.4rem;
+        padding: 12rem 2.4rem 2.4rem 2.4rem;
+        border-radius: 1.6rem;
+        border: 1px solid #343434;
+        background: rgba(9, 9, 9, 0.8);
+        backdrop-filter: blur(10px);
+        position: absolute;
+        top: -16px;
+        left: -16px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        z-index: 10;
+
+        div {
+            white-space: pre-wrap;
+            color: #95959d;
+            font-weight: 500;
+            line-height: 2rem;
+            font-size: 1.4rem;
+            font-family: "Roboto Mono", sans-serif;
+            cursor: text;
+        }
+    }
+}

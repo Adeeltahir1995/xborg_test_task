@@ -81,9 +81,10 @@ const users = [
 ];
 
 export default function Home() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState<number>(1000);
 
   useEffect(() => {
+    setWindowWidth(window.innerWidth);
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };

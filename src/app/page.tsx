@@ -1,7 +1,8 @@
-"use client";
-import { useEffect, useState } from "react";
-
+"use client"
+import { motion } from "framer-motion";
 import Image from "next/image";
+
+// Importing assets
 import {
   Bubbles,
   GamingSectionIllustration,
@@ -21,80 +22,46 @@ import {
   User6,
 } from "./assets";
 
-import { motion } from "framer-motion";
+// Import mock data
+import mockUsers from "./mocks/users.json";
+import mockFeatures from "./mocks/features.json";
 
-import styles from "./page.module.scss";
+// Import components
 import Header from "./components/Header";
 import Card from "./components/Card";
 import ProfileCell from "./components/ProfileCell";
+
+// Import types
+
+import styles from "./page.module.scss";
+import { FeatureType } from "./types/Features";
+import { UserType } from "./types/Users";
+import useWindowWidth from "./hooks/useWindowWidth";
 
 const fadeInUp = {
   animate: { opacity: 1, scale: 1 },
   initial: { opacity: 0, scale: 0 },
 };
 
-const metadata = `<span class="white">player_metadata = {</span>
-"player _name": "JohnDoe123",
-"gaming_platform": "PC",
-"game_level": <span class="red">25</span>,
-"achievements": ["Master of the Arena", "Legendary Explorer"],
-"total_score": <span class="red">2000</span>,
-"preferred_game_mode": "Team Deathmatch",
-"collected items": {
-    "weapon": "Legendary Sword",
-    "armor": "Epic Plate Armor",
-    "pet": "Fire Dragon"
-  <span class="white">}
-}</span>`;
+const usersImages: any = {
+  user1: User1,
+  user2: User2,
+  user3: User3,
+  user4: User4,
+  user5: User5,
+  user6: User6,
+};
 
-const users = [
-  {
-    name: "MonkeyIslander872",
-    image: User1,
-    metadata,
-  },
-  {
-    name: "mean_deal_",
-    image: User2,
-    metadata,
-  },
-  {
-    name: "TennisChallenger",
-    image: User3,
-    metadata,
-  },
-  {
-    name: "DoozieWoozie",
-    image: User4,
-    metadata,
-  },
-  {
-    name: "tired0fbeIngWired",
-    image: User5,
-    metadata,
-  },
-  {
-    name: "Greendragon_",
-    image: User6,
-    metadata,
-  },
-];
+const featuresImages: any = {
+  layer: Layer,
+  star: Star,
+};
 
 export default function Home() {
-  const [windowWidth, setWindowWidth] = useState<number>(1000);
+  const windowWidth = useWindowWidth();
 
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const users = mockUsers as UserType[];
+  const features = mockFeatures as FeatureType[];
 
   return (
     <div className={styles.home}>
@@ -184,16 +151,14 @@ export default function Home() {
           </p>
         </div>
         <div className={styles["home__value-cards"]}>
-          <Card
-            title={"Gaming social layer"}
-            description="Gamers take control of their data."
-            image={Layer}
-          />
-          <Card
-            title={"Build next-gen fat dapps"}
-            description="Plug any apps on top of the gaming social layer."
-            image={Star}
-          />
+          {features.map((feature: FeatureType) => (
+            <Card
+              key={feature.title}
+              title={feature.title}
+              description={feature.description}
+              image={featuresImages[feature.image]}
+            />
+          ))}
         </div>
       </section>
       <section className={styles["home__gaming"]}>
@@ -213,12 +178,12 @@ export default function Home() {
           </p>
         </div>
         <div className={styles["home__gaming-users"]}>
-          {users.map((user, ind) => (
+          {users?.map((user: UserType, ind: number) => (
             <ProfileCell
               opposite={ind % 2 !== 0}
               key={user.name}
               name={user.name}
-              image={user.image}
+              image={usersImages[user.image]}
               metaData={user.metadata}
             />
           ))}

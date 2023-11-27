@@ -18,7 +18,7 @@ const ProfileCell = ({ name, image, metaData, opposite }: ProfileCellProps) => {
       }`}
     >
       <div className={styles["profileCell"]}>
-        <Image src={image} alt="profile avatar" width={64} />
+        <Image src={image} alt="profile avatar" width={64} height={64} />
         <p>{name}</p>
       </div>
       <div className={styles["profileCell__box"]}>

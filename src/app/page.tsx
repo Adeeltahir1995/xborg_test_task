@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -105,7 +105,9 @@ export default function Home() {
                 ? "A decentralised, non-custodial social graph, empowering players to take full ownership of their gaming identities and enabling developers to build next-gen applications."
                 : "We’re a global team on a mission to build the next-generation of gaming, where players and fans experience ownership, and governance and are rewarded for their contributions."}
             </p>
-            <button className={"button"}>Join Discord</button>
+            <button className={`button ${styles["hero__content-button"]}`}>
+              Join Discord
+            </button>
           </div>
           <div className={styles["hero__user"]}>
             <motion.div
@@ -122,11 +124,13 @@ export default function Home() {
               {...fadeInUp}
               transition={{ duration: 0.3, delay: 0.6 }}
             >
-              <Image
-                src={Pills}
-                alt={"xborg_user_pills"}
-                className={styles["pills"]}
-              />
+              <div className={styles["hero__user-pills"]}>
+                <button className={styles["hero__user-pills-pill"]}></button>
+                <div>
+                  <button className={styles["hero__user-pills-pill"]}></button>
+                  <button className={styles["hero__user-pills-pill"]}></button>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
